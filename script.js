@@ -88,7 +88,7 @@ function convertValues() { // Função criada para converter as moedas.
         }).format(inputCurrencyValues)
     }
 
-    if (currencySelect.value == "dolar") { // Se o select estiver selecionado o valor de dolar, entre aqui.
+    /*if (currencySelect.value == "dolar") { // Se o select estiver selecionado o valor de dolar, entre aqui.
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
@@ -123,7 +123,7 @@ function convertValues() { // Função criada para converter as moedas.
             style: "currency",
             currency: "BRL",
         }).format(inputCurrencyValues / realToday)
-}
+}*/
 
 if (currencySelect.value === convertSelect.value) { // Se o select estiver selecionado o valor de dolar, entre aqui.
     
