@@ -126,15 +126,41 @@ function convertValues() { // Função criada para converter as moedas.
 }
 
 if (currencySelect.value == convertSelect.value) { // Se o select estiver selecionado o valor de dolar, entre aqui.
-    currencyValueConverted.innerHTML = new Intl.NumberFormat("BTC", {
-        style: "currency",
-        currency: "BTC",
-    }).format(currencyValueConverted = currencyValueToConvert )
-
-
+    
+    let currencyFormat;
+    let locale;
+    
+    switch (currencySelect.value){
+        case "real":
+            locale = "pt-BR";
+            currencyFormat= "BRL";
+            break;
+            case "dolar":
+                locale = "en-US";
+                currencyFormat= "USD";
+                break;
+                case "euro":
+                    locale = "de-DE";
+                    currencyFormat= "EUR";
+                    break;
+                    case "libra":
+                        locale = "en-GB";
+                        currencyFormat= "GBP";
+                        break;
+                        case "bitcoin":
+                            locale = "en";
+                            currencyFormat= "BTC";
+                            break;
+    }
+    
+    currencyValueConverted.innerHTML= new Intl.NumberFormat(locale,{
+        style:"currency",
+        currency: currencyFormat
+    }).format(inputCurrencyValues).return
 
 }
 }
+
 function changeCurrency() {
 
     const dolarCurrency = document.getElementById("dolar-currency")// Aqui se trata de um 'ID' da label do dólar americano.
