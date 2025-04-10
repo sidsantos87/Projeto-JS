@@ -10,4 +10,4 @@ cujo a sociedade está inserida. Pessoalmente, o estudo e prática do ensinament
 e certeza de que um sonho quando com muito esforço e disposição, além de, bastante prática e humildade 
 para sempre estar em constante aprendizado e evolução, pode ser alcançado e vivido.</p>
 
-<img src:"">
+<img src:"https://github.com/sidsantos87/Projeto-JS/blob/main/assets/tela-c.png?raw=true" alt="Imagem-cel" width="200px" height="200px">
