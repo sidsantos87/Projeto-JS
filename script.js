@@ -155,7 +155,7 @@ if (currencySelect.value === convertSelect.value) { // Se o select estiver selec
     
     currencyValueConverted.innerHTML= new Intl.NumberFormat(locale,{
         style:"currency",
-        currency: currencyFormat
+        currency: "currencyFormat"
     }).format(inputCurrencyValues).return
 
 }
