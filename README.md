@@ -11,4 +11,4 @@ e certeza de que um sonho quando com muito esforço e disposição, além de, ba
 para sempre estar em constante aprendizado e evolução, pode ser alcançado e vivido.</p>
 
 
-<img src:"https://github.com/sidsantos87/Projeto-JS/blob/main/assets/tela-c.png?raw=true">
+<img src="https://github.com/Sidsantos87/Projeto-we-care/blob/master/img/tela%201%20(1).png?raw=true" alt="imagem-note" width="400px">
