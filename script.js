@@ -125,7 +125,7 @@ function convertValues() { // Função criada para converter as moedas.
         }).format(inputCurrencyValues / realToday)
 }
 
-if (currencySelect.value == convertSelect.value) { // Se o select estiver selecionado o valor de dolar, entre aqui.
+if (currencySelect.value === convertSelect.value) { // Se o select estiver selecionado o valor de dolar, entre aqui.
     
     let currencyFormat;
     let locale;
