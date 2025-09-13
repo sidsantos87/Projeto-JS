@@ -8,7 +8,7 @@ function /*const ao invés da function */ convertValues /*= async =>*/  (){ // F
     const currencyValueConverted = document.querySelector(".currency-converted-dollar") // Classe para converter o valor de outras moedas.
 
     /*const data = await fetch(" https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL"
-            ).them(response => response.json()) */
+            ).then(response => response.json()) */
 
     const dollarToday = /*data.USDBRL.high*/5.9
     const euroToday = /*data.EURBRL.high*/5.5
