@@ -2,17 +2,19 @@ const convertButton = document.querySelector(".convert-button") // Classe do bot
 const currencySelect = document.querySelector(".currency-select") // Classe da opção para converter as moedas.
 const convertSelect = document.querySelector(".convert-select")
 
-function convertValues() { // Função criada para converter as moedas.  
+function convertValues /*= async =>*/  () {// Função criada para converter as moedas.  
     const inputCurrencyValues = document.querySelector(".input-currency").value
     const currencyValueToConvert = document.querySelector(".currency-convert-real",) // Classe para converter o valor do real.
     const currencyValueConverted = document.querySelector(".currency-converted-dollar",) // Classe para converter o valor de outras moedas.
 
+/*    const data = await fetch(" https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL"
+            ).them(response => response.json()) */
 
-    const dollarToday = 5.2
-    const euroToday = 6.2
-    const libraToday = 7.5
-    const bitToday = 100.000
-    const realToday = 1.0
+    const dollarToday = /*data.USDBRL.high*/5.9
+    const euroToday = /*data.EURBRL.high*/6.5
+    const libraToday = /*data.GPBBRL.high*/7.2
+    const bitToday = /*data.BTCBRL.high*/100.000
+    const realToday = /*data.BRLBRL.high*/1.0
 
     if (currencySelect.value == "dolar") { // Se o select estiver selecionado o valor de dolar, entre aqui.
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
