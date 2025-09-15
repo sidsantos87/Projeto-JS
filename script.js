@@ -1,52 +1,50 @@
-const convertButton = document.querySelector(".convert-button") // Classe do botão para converter as moedas.
-const currencySelect = document.querySelector(".currency-select") // Classe da opção para converter as moedas.
+const convertButton = document.querySelector(".convert-button")
+const currencySelect = document.querySelector(".currency-select")
 const convertSelect = document.querySelector(".convert-select")
 
-function /*const ao invés da function */ convertValues /*= async =>*/  (){ // Função criada para converter as moedas.  
+const convertValues = async () => {
     const inputCurrencyValues = document.querySelector(".input-currency").value
-    const currencyValueToConvert = document.querySelector(".currency-convert-real") // Classe para converter o valor do real.
-    const currencyValueConverted = document.querySelector(".currency-converted-dollar") // Classe para converter o valor de outras moedas.
+    const currencyValueToConvert = document.querySelector(".currency-convert-real")
+    const currencyValueConverted = document.querySelector(".currency-converted-dollar")
 
-    /*const data = await fetch(" https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL"
-            ).then(response => response.json()) */
+    const data = await fetch(" https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL"
+    ).then(response => response.json())
 
-    const dollarToday = /*data.USDBRL.high*/5.9
-    const euroToday = /*data.EURBRL.high*/5.5
-    const libraToday = /*data.GPBBRL.high*/6.8
-    const bitToday = /*data.BTCBRL.high*/100.000
-    const realToday = /*data.BRLBRL.high*/1
+    const dollarToday = data.USDBRL.high
+    const euroToday = data.EURBRL.high
+    const libraToday = data.GPBBRL.high
+    const bitToday = data.BTCBRL.high
+    const realToday = data.BRLBRL.high
 
-    if (currencySelect.value == "dolar") { // Se o select estiver selecionado o valor de dolar, entre aqui.
+    if (currencySelect.value == "dolar") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
-        }).format(inputCurrencyValues / dollarToday) // Enqunanto se formata, observar que
-        // as aplicações não ficam nas cores padrões, neste momento ROXAS, até serem aplicadas permanecendo 
-        // em um tom cinza.
+        }).format(inputCurrencyValues / dollarToday)
     }
 
-    if (currencySelect.value == "euro") { // Se o select estiver selecionado o valor de euro, entre aqui.
+    if (currencySelect.value == "euro") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR",
         }).format(inputCurrencyValues / euroToday)
     }
 
-    if (currencySelect.value == "libra") { // Se o select estiver selecionado o valor de dolar, entre aqui.
+    if (currencySelect.value == "libra") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
             style: "currency",
-            currency: "GPB",
+            currency: "GBP",
         }).format(inputCurrencyValues / libraToday)
     }
 
-    if (currencySelect.value == "bitcoin") { // Se o select estiver selecionado o valor de dolar, entre aqui.
+    if (currencySelect.value == "bitcoin") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("BTC", {
             style: "currency",
             currency: "BTC",
         }).format(inputCurrencyValues / bitToday)
     }
 
-    if (currencySelect.value == "real") { // Se o select estiver selecionado o valor de dolar, entre aqui.
+    if (currencySelect.value == "real") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
@@ -55,14 +53,14 @@ function /*const ao invés da function */ convertValues /*= async =>*/  (){ // F
 
 
     if (convertSelect.value == "real") {
-        currencyValueToConvert.innerHTML = Intl.NumberFormat("pt-BR", /*"en-US", "de-DE","en-GB", "BTC", */{
+        currencyValueToConvert.innerHTML = Intl.NumberFormat("pt-BR", {
             style: "currency",
             currency: "BRL",
         }).format(inputCurrencyValues)
     }
 
     if (convertSelect.value == "dolar") {
-        currencyValueToConvert.innerHTML = Intl.NumberFormat("en-US", /*"de-DE","en-GB", "BTC", */{
+        currencyValueToConvert.innerHTML = Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
         }).format(inputCurrencyValues)
@@ -90,83 +88,46 @@ function /*const ao invés da function */ convertValues /*= async =>*/  (){ // F
         }).format(inputCurrencyValues)
     }
 
-    /*if (currencySelect.value == "dolar") { // Se o select estiver selecionado o valor de dolar, entre aqui.
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-        }).format(inputCurrencyValues / dollarToday) // Enqunanto se formata, observar que
-        // as aplicações não ficam nas cores padrões, neste momento ROXAS, até serem aplicadas permanecendo 
-        // em um tom cinza.
-    }
+    if (currencySelect.value === convertSelect.value) {
 
-    if (currencySelect.value == "euro") { // Se o select estiver selecionado o valor de euro, entre aqui.
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
-            style: "currency",
-            currency: "EUR",
-        }).format(inputCurrencyValues / euroToday)
-    }
+        let currencyFormat;
+        let locale;
 
-    if (currencySelect.value == "libra") { // Se o select estiver selecionado o valor de dolar, entre aqui.
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
-            style: "currency",
-            currency: "GPB",
-        }).format(inputCurrencyValues / libraToday)
-    }
-
-    if (currencySelect.value == "bitcoin") { // Se o select estiver selecionado o valor de dolar, entre aqui.
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("BTC", {
-            style: "currency",
-            currency: "BTC",
-        }).format(inputCurrencyValues / bitToday)
-    }
-
-    if (currencySelect.value == "real") { // Se o select estiver selecionado o valor de dolar, entre aqui.
-        currencyValueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-        }).format(inputCurrencyValues / realToday)
-}*/
-
-if (currencySelect.value === convertSelect.value) { // Se o select estiver selecionado o valor de dolar, entre aqui.
-    
-    let currencyFormat;
-    let locale;
-    
-    switch (currencySelect.value){
-        case "real":
-            locale = "pt-BR";
-            currencyFormat= "BRL";
-            break;
+        switch (currencySelect.value) {
+            case "real":
+                locale = "pt-BR";
+                currencyFormat = "BRL";
+                break;
             case "dolar":
                 locale = "en-US";
-                currencyFormat= "USD";
+                currencyFormat = "USD";
                 break;
-                case "euro":
-                    locale = "de-DE";
-                    currencyFormat= "EUR";
-                    break;
-                    case "libra":
-                        locale = "en-GB";
-                        currencyFormat= "GBP";
-                        break;
-                        case "bitcoin":
-                            locale = "en";
-                            currencyFormat= "BTC";
-                            break;
-    }
-    
-    currencyValueConverted.innerHTML= new Intl.NumberFormat(locale,{
-        style:"currency",
-        currency: "currencyFormat"
-    }).format(inputCurrencyValues).return
+            case "euro":
+                locale = "de-DE";
+                currencyFormat = "EUR";
+                break;
+            case "libra":
+                locale = "en-GB";
+                currencyFormat = "GBP";
+                break;
+            case "bitcoin":
+                locale = "en";
+                currencyFormat = "BTC";
+                break;
+        }
 
-}
+        currencyValueConverted.innerHTML = new Intl.NumberFormat(locale, {
+            style: "currency",
+            currency: currencyFormat
+        }).format(inputCurrencyValues).return
+
+    }
 }
 
 function changeCurrency() {
 
-    const dolarCurrency = document.getElementById("dolar-currency")// Aqui se trata de um 'ID' da label do dólar americano.
-    const currencyImagem = document.querySelector(".currency-imagem") // Imagem dos USA/EURO
+    const dolarCurrency = document.getElementById("dolar-currency")
+    const currencyImagem = document.querySelector(".currency-imagem")
 
     if (currencySelect.value == "dolar") {
         dolarCurrency.innerHTML = "Dólar americano"
@@ -229,33 +190,8 @@ function changeValueToConvert() {
     convertValues()
 }
 
-/*function converterMoeda(inputCurrencyValues, currencyValueConverted, currencyValueToConvert) {
-
-    
-    // Verifica se as moedas são iguais
-    if (currencyValueConverted === currencyValueToConvert) {
-        return {
-            valorConvertido: currencyValueConverted, // Retorna o valor original
-            moeda: currencyValueToConvert // Retorna a moeda original
-        };
-    }
-    
-    // Realiza a conversão
-    const valorConvertido = inputCurrencyValues;
-    return {
-        valorConvertido: valorConvertido,
-        moeda: currencyValueToConvert // Retorna a moeda de destino
-    };
-}*/
-
-/*function converterMoeda(inputCurrencyValues, currencyValueConverted, currencyValueToConvert) {
-    if (currencyValueToConvert = currencyValueConverted) {
-        return inputCurrencyValues; // Retorna o valor original se as moedas forem iguais
-    }
-    
-}*/
 
 convertButton.addEventListener("click", convertValues)
 currencySelect.addEventListener("change", changeCurrency)
-convertSelect.addEventListener("change", changeValueToConvert) // Toda essa aoperação é em função do 'button'
-// e o clique realizado. Assim, toda ação será realizada por matemática básica. 
+convertSelect.addEventListener("change", changeValueToConvert)
+
