@@ -12,9 +12,9 @@ const convertValues = async () => {
 
     const dollarToday = data.USDBRL.high
     const euroToday = data.EURBRL.high
-    const libraToday = data.GPBBRL.high
+   // const libraToday = data.GBPBRL.high API não fornece a cotação da libra e por isso está comentado.
     const bitToday = data.BTCBRL.high
-    const realToday = data.BRLBRL.high
+    const realToday = 1
 
     if (currencySelect.value == "dolar") {
         currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
